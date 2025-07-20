@@ -1,0 +1,1018 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.5% 48%;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    @apply backdrop-blur-md bg-white/30 dark:bg-gray-900/30 border border-white/40 dark:border-gray-700/40 shadow-lg;
+  }
+
+  /* New pharmaceutical-themed components */
+  .pharma-card {
+    @apply bg-white dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 rounded-md shadow-md;
+    background-image: 
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2)),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .dark .pharma-card {
+    background-image: 
+      linear-gradient(to bottom, rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.2)),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .pharma-container {
+    @apply relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800;
+  }
+
+  .lab-card {
+    @apply bg-white dark:bg-gray-800 rounded-md shadow-md border-l-4 border-blue-600 dark:border-blue-500 p-6 transition-all;
+    background-image: linear-gradient(135deg, rgba(219, 234, 254, 0.1) 25%, transparent 25%, transparent 50%, rgba(219, 234, 254, 0.1) 50%, rgba(219, 234, 254, 0.1) 75%, transparent 75%, transparent);
+    background-size: 28px 28px;
+  }
+
+  .pharma-button {
+    @apply px-4 py-2 rounded border bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(219, 234, 254, 0.3));
+  }
+
+  .pharma-button-primary {
+    @apply px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 shadow-sm hover:shadow-md transition-all;
+    background-image: linear-gradient(to bottom, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.3));
+  }
+
+  .pharma-button-secondary {
+    @apply px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 shadow-sm hover:shadow-md transition-all;
+  }
+
+  .pharma-button-danger {
+    @apply px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700 shadow-sm hover:shadow-md transition-all;
+    background-image: linear-gradient(to bottom, rgba(220, 38, 38, 0.1), rgba(185, 28, 28, 0.3));
+  }
+
+  .pharma-button-danger-outline {
+    @apply px-4 py-2 rounded border border-red-600 dark:border-red-500 text-red-600 dark:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 shadow-sm hover:shadow-md transition-all;
+  }
+
+  .pharma-section {
+    @apply border-l-4 border-blue-500 pl-4 py-1 mb-4;
+  }
+
+  .pharma-title {
+    @apply text-xl font-semibold text-gray-800 dark:text-gray-100;
+    letter-spacing: 0.5px;
+  }
+
+  .pharma-input {
+    @apply border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .pharma-input-container {
+    @apply relative;
+  }
+
+  .time-card {
+    @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md p-4 shadow-sm;
+    background-image: 
+      linear-gradient(45deg, rgba(219, 234, 254, 0.2) 25%, transparent 25%), 
+      linear-gradient(-45deg, rgba(219, 234, 254, 0.2) 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, rgba(219, 234, 254, 0.2) 75%), 
+      linear-gradient(-45deg, transparent 75%, rgba(219, 234, 254, 0.2) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+
+  .dark .time-card {
+    background-image: 
+      linear-gradient(45deg, rgba(30, 58, 138, 0.2) 25%, transparent 25%), 
+      linear-gradient(-45deg, rgba(30, 58, 138, 0.2) 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, rgba(30, 58, 138, 0.2) 75%), 
+      linear-gradient(-45deg, transparent 75%, rgba(30, 58, 138, 0.2) 75%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1;
+  }
+
+  .button-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .button-secondary {
+    @apply bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 py-2 px-4 rounded-md transition-all duration-200 shadow-sm hover:shadow-md active:scale-95;
+  }
+
+  .input-primary {
+    @apply border dark:border-gray-600 rounded-md p-2 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+  }
+
+  .message-container {
+    @apply mb-4 animate-fadeIn;
+  }
+
+  .message-bubble-user {
+    @apply inline-block max-w-2xl rounded-2xl p-3 bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-md;
+  }
+
+  .message-bubble-assistant {
+    @apply inline-block max-w-2xl rounded-2xl p-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-md border-t border-gray-100 dark:border-gray-700;
+  }
+
+  .card-modern {
+    @apply rounded-2xl bg-white dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 dark:border-gray-700 relative p-6;
+  }
+
+  .card-premium {
+    @apply relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 z-10;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  }
+
+  .dark .card-premium {
+    background: linear-gradient(180deg, rgba(31, 41, 55, 0.9) 0%, rgba(31, 41, 55, 0.7) 100%);
+  }
+
+  .card-premium::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.5), rgba(147, 51, 234, 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .pulse-slow {
+    animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animated-border-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    @apply rounded-2xl bg-white dark:bg-gray-800 shadow-lg p-6;
+  }
+
+  .animated-border-card::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+    background-size: 300% 100%;
+    z-index: -1;
+    animation: border-animate 8s linear infinite;
+    border-radius: inherit;
+  }
+
+  .animated-border-card::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: inherit;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .gradient-button {
+    @apply rounded-md font-medium text-white shadow-lg transition-all duration-300 relative overflow-hidden;
+    background-size: 200% auto;
+    background-image: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #3b82f6 100%);
+    animation: shine 8s linear infinite;
+  }
+
+  .gradient-button:hover {
+    background-position: right center;
+    @apply shadow-xl -translate-y-1;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-slideDown {
+    animation: slideDown 0.5s ease-out;
+  }
+
+  .animate-slideRight {
+    animation: slideRight 0.5s ease-out;
+  }
+
+  .animate-slideLeft {
+    animation: slideLeft 0.5s ease-out;
+  }
+
+  .animate-scaleUp {
+    animation: scaleUp 0.5s ease-out;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideRight {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideLeft {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @keyframes border-animate {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 300% 0%; }
+  }
+
+  @keyframes shine {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+  }
+
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* RTL Support */
+html[dir="rtl"] * {
+  text-align: right;
+}
+
+/* Font settings for Persian text */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Vazirmatn', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+} 
+
+/* Markdown Styles */
+.markdown {
+  @apply text-left;
+}
+
+.markdown h1 {
+  @apply text-2xl font-bold my-4;
+}
+
+.markdown h2 {
+  @apply text-xl font-bold my-3;
+}
+
+.markdown h3 {
+  @apply text-lg font-bold my-2;
+}
+
+.markdown h4 {
+  @apply font-bold my-2;
+}
+
+.markdown p {
+  @apply my-2;
+}
+
+.markdown ul {
+  @apply list-disc list-inside my-2 pr-4;
+}
+
+.markdown ol {
+  @apply list-decimal list-inside my-2 pr-4;
+}
+
+.markdown li {
+  @apply my-1;
+}
+
+.markdown a {
+  @apply text-blue-600 dark:text-blue-400 underline;
+}
+
+.markdown blockquote {
+  @apply border-r-4 border-gray-300 dark:border-gray-600 pr-4 my-2 italic;
+}
+
+.markdown code {
+  @apply font-mono bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-sm;
+}
+
+.markdown pre {
+  @apply bg-gray-200 dark:bg-gray-700 p-2 rounded my-2 overflow-x-auto;
+}
+
+.markdown pre code {
+  @apply bg-transparent dark:bg-transparent;
+}
+
+.markdown table {
+  @apply border-collapse border border-gray-300 dark:border-gray-600 my-2 w-full;
+}
+
+.markdown th,
+.markdown td {
+  @apply border border-gray-300 dark:border-gray-600 p-2;
+}
+
+.markdown th {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+.markdown hr {
+  @apply my-4 border-gray-300 dark:border-gray-600;
+}
+
+/* Flip directions for RTL */
+html[dir="rtl"] .markdown {
+  @apply text-right;
+}
+
+html[dir="rtl"] .markdown ul {
+  @apply pr-0 pl-4;
+}
+
+html[dir="rtl"] .markdown ol {
+  @apply pr-0 pl-4;
+}
+
+html[dir="rtl"] .markdown blockquote {
+  @apply border-r-0 border-l-4 pr-0 pl-4;
+}
+
+/* Background Elements */
+.bg-grid-pattern {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+.dark .bg-grid-pattern {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideRight {
+  animation: slideRight 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Card Styles */
+.card-premium {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .card-premium {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
+.dark .glassmorphism {
+  background: rgba(30, 41, 59, 0.7);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Button Styles */
+.gradient-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #4f46e5 100%);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.gradient-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.gradient-button:active {
+  transform: translateY(1px);
+}
+
+.button-secondary {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .button-secondary {
+  background-color: #374151;
+  color: #e5e7eb;
+}
+
+.button-secondary:hover {
+  background-color: #e5e7eb;
+}
+
+.dark .button-secondary:hover {
+  background-color: #4b5563;
+}
+
+/* Input Styles */
+.input-primary {
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.dark .input-primary {
+  border-color: #4b5563;
+  background-color: rgba(30, 41, 59, 0.7);
+  color: #f3f4f6;
+}
+
+.input-primary:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Chat Styles */
+.message-container {
+  margin-bottom: 1rem;
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.message-bubble-user {
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 16px;
+  padding: 1rem;
+  max-width: 80%;
+  display: inline-block;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.message-bubble-assistant {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  border-radius: 16px;
+  padding: 1rem;
+  max-width: 80%;
+  display: inline-block;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dark .message-bubble-assistant {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f3f4f6;
+}
+
+.markdown h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown p {
+  margin-bottom: 0.75rem;
+}
+
+.markdown ul, .markdown ol {
+  margin-bottom: 0.75rem;
+  padding-right: 1.5rem;
+}
+
+.markdown ul {
+  list-style-type: disc;
+}
+
+.markdown ol {
+  list-style-type: decimal;
+}
+
+.markdown li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown code {
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+.dark .markdown code {
+  background-color: #374151;
+}
+
+.markdown pre {
+  background-color: #f3f4f6;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 0.75rem;
+}
+
+.dark .markdown pre {
+  background-color: #1f2937;
+}
+
+.markdown pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.markdown a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.markdown a:hover {
+  text-decoration: none;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.dark .text-glow {
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+}
+
+/* Scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 9999px;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.5);
+} 
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Animation Classes */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.4s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.animate-pulse-custom {
+  animation: pulse 2s infinite;
+}
+
+/* Pharma UI Components */
+.pharma-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.pharma-title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white;
+}
+
+.pharma-subtitle {
+  @apply text-lg font-medium text-gray-700 dark:text-gray-300;
+}
+
+.pharma-card {
+  @apply bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700 rounded-lg;
+}
+
+.lab-card {
+  @apply bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 rounded-lg p-6;
+}
+
+.pharma-input {
+  @apply block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:text-white sm:text-sm;
+}
+
+.pharma-button {
+  @apply inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.pharma-button-primary {
+  @apply inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.pharma-button-success {
+  @apply inline-flex justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.pharma-button-danger {
+  @apply inline-flex justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.pharma-button-warning {
+  @apply inline-flex justify-center rounded-md border border-transparent bg-yellow-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Status Colors for Reminder Logs */
+.status-pending {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300;
+}
+
+.status-taken {
+  @apply bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300;
+}
+
+.status-skipped {
+  @apply bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300;
+}
+
+/* Background Pattern */
+.bg-grid-pattern {
+  background-size: 20px 20px;
+}
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+  .pharma-card {
+    @apply p-4;
+  }
+  
+  .lab-card {
+    @apply p-4;
+  }
+} 
+
+/* Custom Markdown Styling for Chat */
+.markdown-custom {
+  @apply text-gray-800 dark:text-gray-200;
+}
+
+.markdown-custom p {
+  @apply my-1.5; /* Reduce paragraph margins */
+}
+
+.markdown-custom h1, 
+.markdown-custom h2, 
+.markdown-custom h3, 
+.markdown-custom h4 {
+  @apply mt-3 mb-2 font-bold; /* Reduce heading margins */
+}
+
+.markdown-custom ul, 
+.markdown-custom ol {
+  @apply my-1.5 pl-5; /* Reduce list margins */
+}
+
+.markdown-custom li {
+  @apply my-0.5; /* Reduce list item spacing */
+}
+
+.markdown-custom pre {
+  @apply my-2 p-2 rounded bg-gray-100 dark:bg-gray-800/80; /* Reduce code block margins */
+}
+
+.markdown-custom code {
+  @apply px-1 py-0.5 rounded bg-gray-100 dark:bg-gray-800/80 text-sm;
+}
+
+.markdown-custom blockquote {
+  @apply pl-3 my-2 border-l-2 border-gray-300 dark:border-gray-600 italic;
+} 

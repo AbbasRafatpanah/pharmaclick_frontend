@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow specific paths
+Disallow: /api/
+Disallow: /auth/
+
+# Sitemap location
+Sitemap: https://clickpharma.ir/sitemap.xml 
