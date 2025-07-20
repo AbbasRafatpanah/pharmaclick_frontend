@@ -1,85 +1,54 @@
-# داروخانه یار - PharmacyHelper
+# PharmaClick Frontend
 
-سیستم مشاور دارویی هوشمند و یادآور مصرف دارو با پشتیبانی هوش مصنوعی
+Next.js frontend application for PharmaClick, a pharmacy helper application.
 
-## ویژگی‌ها
+## Features
 
-- **چت‌بات دارویی هوشمند**: پاسخ به سؤالات دارویی با استفاده از هوش مصنوعی
-- **پشتیبانی از تصاویر**: امکان آپلود تصاویر داروها برای تحلیل توسط هوش مصنوعی
-- **یادآور مصرف دارو**: تنظیم یادآور برای مصرف به موقع داروها
-- **رابط کاربری مدرن**: طراحی زیبا و کاربرپسند با پشتیبانی از حالت تاریک
+- Medication reminders
+- Chatbot for medication information
+- User profiles and settings
+- Notification system
 
-## تکنولوژی‌های استفاده شده
+## Development
 
-### فرانت‌اند
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-- Lucide Icons
-- React Markdown
-- Axios
-
-### بک‌اند
-- Django
-- Django REST Framework
-- Aval AI API
-
-## بهبودهای رابط کاربری
-
-در نسخه جدید، رابط کاربری به طور کامل بازطراحی شده است:
-
-1. **سیستم طراحی جدید**:
-   - کامپوننت‌های مدرن و قابل استفاده مجدد
-   - پشتیبانی از حالت تاریک و روشن
-   - انیمیشن‌های روان و جذاب
-
-2. **صفحه اصلی**:
-   - طراحی قهرمان (Hero) مدرن
-   - نمایش ویژگی‌های اصلی برنامه
-   - بخش نحوه کار با برنامه
-
-3. **چت‌بات دارویی**:
-   - رابط کاربری بهبود یافته برای گفتگو
-   - پشتیبانی بهتر از آپلود تصاویر
-   - نمایش پیش‌نمایش تصاویر آپلود شده
-
-4. **احراز هویت**:
-   - فرم‌های ورود و ثبت نام مدرن
-   - اعتبارسنجی فرم‌ها
-   - نمایش پیام‌های خطا به صورت toast
-
-5. **یادآور دارو**:
-   - رابط کاربری بهبود یافته برای مدیریت داروها
-   - فرم‌های بهتر برای تنظیم یادآورها
-   - نمایش بهتر لیست داروها و یادآورها
-
-6. **کامپوننت‌های جدید**:
-   - Button: دکمه‌های مدرن با انواع مختلف
-   - Card: کارت‌های زیبا برای نمایش اطلاعات
-   - Input: ورودی‌های کاربرپسند
-   - Container: کانتینر برای چیدمان بهتر صفحات
-   - Header و Footer: هدر و فوتر جدید برای تمام صفحات
-
-7. **پشتیبانی از موبایل**:
-   - طراحی واکنش‌گرا برای تمام صفحات
-   - منوی همبرگری برای موبایل
-   - بهینه‌سازی برای صفحات کوچک
-
-## نحوه اجرا
-
-### فرانت‌اند
 ```bash
-cd frontend
+# Install dependencies
 npm install
+
+# Run development server
 npm run dev
 ```
 
-### بک‌اند
+## Docker Deployment
+
+### Build and run with Docker
+
 ```bash
-cd PharmecyBackend
-pip install -r requirements.txt
-python manage.py runserver
+# Build the Docker image
+docker build -t pharmaclick-frontend .
+
+# Run the container
+docker run -p 3000:3000 pharmaclick-frontend
 ```
 
-## توسعه‌دهندگان
-- [نام توسعه‌دهنده] 
+### Using Docker Compose
+
+```bash
+# Build and start the container
+docker-compose up -d
+
+# Stop the container
+docker-compose down
+```
+
+## Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```
+NEXT_PUBLIC_API_URL=http://your-backend-url/api
+```
+
+## License
+
+This project is proprietary and confidential. 
